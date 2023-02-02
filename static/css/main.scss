@@ -144,18 +144,24 @@ header{
 
 // SECTION HERO 
 
+.hero-background{
+    object-fit: cover;
+    width: 100vw;
+    height: 80vh;
+    min-height: 600px;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+}
+
 .hero-section{
-    .hero-background{
-        object-fit: cover;
-        width: 100vw;
-        height: 80vh;
-
-        position: absolute;
-        top: 0;
-        z-index: -1;
-    }
-
     .typo{
+        width: 100vw;
+        height: 69vh;
+        min-height: 500px;
+        max-width: 350px;
+        padding: 0 0 0em 2em;
+        transform: translateY(20%);
         h1{
             font-size: 3.7em;
             text-transform: uppercase;
@@ -178,6 +184,106 @@ header{
 
                 .arrow{
                     margin-right: 10px;
+                }
+            }
+        }
+    }
+
+    .benefits{
+        display: flex;
+        background-color: $color-primary;
+
+
+        .item{
+            padding: 2em;
+            max-width: 300px;
+
+            .title{
+                display: flex;
+                align-items: center;
+                margin-bottom: 1em;
+
+                svg{
+                    margin-right: 10px;
+                }
+            }
+        }
+
+        .selected{
+            border-top: $color-primary solid 4px;
+            background: linear-gradient(180deg, #bebebe 0%, #FFFFFF 100%);
+        }
+
+        .second{
+            display: none;
+        }
+    }
+}
+
+.frota-section{
+    margin: 2em;
+    .typo-frota{
+        display: flex;
+        align-items: baseline;
+        margin-top: 4em;
+        margin-bottom: 1em;
+
+        h1{
+            font-size: 1.7em;
+        }
+
+        a{
+            color: $color-primary-dark;
+            font-weight: 500;
+            margin-left: 15px;
+        }
+    }
+
+    .cards{
+        .card{
+            padding: 1em;
+            border-top: $color-primary solid 4px;
+            background: linear-gradient(180deg, #bebebe 0%, #FFFFFF 100%);
+            max-width: 350px;
+            width: 274.5px;
+            img{
+                max-width: 300px;
+                transform: translateX(-25px);
+            }
+
+            .red{
+                scale: .9;
+                transform: translate(-15px, 30px);
+            }
+
+            .blue{
+                transform: translate(-15px, 10px);
+            }
+
+            p{
+                max-width: 280px;
+                margin-top: 5px;
+                &:nth-of-type(1){
+                    color: $color-primary-dark;
+                    font-size: 1.1em;
+                    font-weight: 500;
+                }
+            }
+
+            button{
+                border-radius: 5px;
+                border: none;
+                background-color: $color-primary;
+                width: 280px;
+                padding: 5px 0;
+                font-size: 1em;
+                cursor: pointer;
+                transition: .5s;
+                font-weight: 500;
+                margin-top: 1em;
+
+                &:hover{
+                    background-color: $color-primary-dark;
                 }
             }
         }

@@ -101,14 +101,24 @@ header nav .menu span {
   transition: 0.3s;
 }
 
-.hero-section .hero-background {
+.hero-background {
   -o-object-fit: cover;
      object-fit: cover;
   width: 100vw;
   height: 80vh;
+  min-height: 600px;
   position: absolute;
   top: 0;
   z-index: -1;
+}
+
+.hero-section .typo {
+  width: 100vw;
+  height: 69vh;
+  min-height: 500px;
+  max-width: 350px;
+  padding: 0 0 0em 2em;
+  transform: translateY(20%);
 }
 .hero-section .typo h1 {
   font-size: 3.7em;
@@ -131,6 +141,89 @@ header nav .menu span {
 }
 .hero-section .typo .rent-ad a .arrow {
   margin-right: 10px;
+}
+.hero-section .benefits {
+  display: flex;
+  background-color: #99C46B;
+}
+.hero-section .benefits .item {
+  padding: 2em;
+  max-width: 300px;
+}
+.hero-section .benefits .item .title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1em;
+}
+.hero-section .benefits .item .title svg {
+  margin-right: 10px;
+}
+.hero-section .benefits .selected {
+  border-top: #99C46B solid 4px;
+  background: linear-gradient(180deg, #bebebe 0%, #FFFFFF 100%);
+}
+.hero-section .benefits .second {
+  display: none;
+}
+
+.frota-section {
+  margin: 2em;
+}
+.frota-section .typo-frota {
+  display: flex;
+  align-items: baseline;
+  margin-top: 4em;
+  margin-bottom: 1em;
+}
+.frota-section .typo-frota h1 {
+  font-size: 1.7em;
+}
+.frota-section .typo-frota a {
+  color: #538B17;
+  font-weight: 500;
+  margin-left: 15px;
+}
+.frota-section .cards .card {
+  padding: 1em;
+  border-top: #99C46B solid 4px;
+  background: linear-gradient(180deg, #bebebe 0%, #FFFFFF 100%);
+  max-width: 350px;
+  width: 274.5px;
+}
+.frota-section .cards .card img {
+  max-width: 300px;
+  transform: translateX(-25px);
+}
+.frota-section .cards .card .red {
+  scale: 0.9;
+  transform: translate(-15px, 30px);
+}
+.frota-section .cards .card .blue {
+  transform: translate(-15px, 10px);
+}
+.frota-section .cards .card p {
+  max-width: 280px;
+  margin-top: 5px;
+}
+.frota-section .cards .card p:nth-of-type(1) {
+  color: #538B17;
+  font-size: 1.1em;
+  font-weight: 500;
+}
+.frota-section .cards .card button {
+  border-radius: 5px;
+  border: none;
+  background-color: #99C46B;
+  width: 280px;
+  padding: 5px 0;
+  font-size: 1em;
+  cursor: pointer;
+  transition: 0.5s;
+  font-weight: 500;
+  margin-top: 1em;
+}
+.frota-section .cards .card button:hover {
+  background-color: #538B17;
 }
 
 @media only screen and (min-width: 768px) {
