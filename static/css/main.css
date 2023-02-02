@@ -230,7 +230,44 @@ header nav .menu span {
 }
 
 .services-section .typo-services {
-  margin: 2em;
+  margin: 4em 0 0 2em;
+}
+.services-section .typo-services .catch-phase {
+  margin-bottom: 2.3em;
+}
+.services-section .typo-services .logo-services {
+  width: 200px;
+  margin-bottom: 1em;
+}
+.services-section .typo-services .check {
+  display: flex;
+  margin-bottom: 1.2em;
+}
+.services-section .typo-services .check svg {
+  margin-right: 10px;
+}
+
+footer {
+  background-color: #99C46B;
+  padding: 2em;
+}
+footer .useful-links {
+  display: flex;
+  margin-bottom: 2em;
+}
+footer .useful-links .list {
+  margin-right: 3em;
+}
+footer .useful-links .list .header {
+  font-weight: 600;
+}
+footer .useful-links .list p a {
+  color: #000;
+  transition: 0.5s;
+}
+footer .useful-links .list p a:hover {
+  margin-left: 0.5em;
+  color: #34590d;
 }
 
 @media only screen and (min-width: 768px) {

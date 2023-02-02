@@ -297,7 +297,50 @@ header{
 
 .services-section{
     .typo-services{
-        margin: 2em;
+        margin: 4em 0 0 2em;
+
+        .catch-phase{
+            margin-bottom: 2.3em;
+        }
+
+        .logo-services{
+            width: 200px;
+            margin-bottom: 1em;
+        }
+        .check{
+            display: flex;
+            margin-bottom: 1.2em;
+            svg{
+                margin-right: 10px;
+            }
+        }
+    }
+}
+
+footer{
+    background-color: $color-primary;
+    padding: 2em;
+    .useful-links{
+        display: flex;
+        margin-bottom: 2em;
+        .list{
+            margin-right: 3em;
+
+            .header{
+                font-weight: 600;
+            }
+
+            p{
+                a{
+                    color: #000;
+                    transition: .5s;
+                    &:hover{
+                        margin-left: .5em;
+                        color: #34590d;
+                    }
+                }
+            }
+        }
     }
 }
 
