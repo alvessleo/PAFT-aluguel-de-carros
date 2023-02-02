@@ -105,7 +105,7 @@ header nav .menu span {
   -o-object-fit: cover;
      object-fit: cover;
   width: 100vw;
-  height: 80vh;
+  height: 81vh;
   min-height: 600px;
   position: absolute;
   top: 0;
@@ -173,7 +173,7 @@ header nav .menu span {
   display: flex;
   align-items: baseline;
   margin-top: 4em;
-  margin-bottom: 1em;
+  margin-bottom: 1.5em;
 }
 .frota-section .typo-frota h1 {
   font-size: 1.7em;
@@ -182,6 +182,9 @@ header nav .menu span {
   color: #538B17;
   font-weight: 500;
   margin-left: 15px;
+}
+.frota-section .cards .two, .frota-section .cards .three {
+  display: none;
 }
 .frota-section .cards .card {
   padding: 1em;
@@ -224,6 +227,10 @@ header nav .menu span {
 }
 .frota-section .cards .card button:hover {
   background-color: #538B17;
+}
+
+.services-section .typo-services {
+  margin: 2em;
 }
 
 @media only screen and (min-width: 768px) {

@@ -147,7 +147,7 @@ header{
 .hero-background{
     object-fit: cover;
     width: 100vw;
-    height: 80vh;
+    height: 81vh;
     min-height: 600px;
     position: absolute;
     top: 0;
@@ -226,7 +226,7 @@ header{
         display: flex;
         align-items: baseline;
         margin-top: 4em;
-        margin-bottom: 1em;
+        margin-bottom: 1.5em;
 
         h1{
             font-size: 1.7em;
@@ -240,6 +240,11 @@ header{
     }
 
     .cards{
+
+        .two, .three{
+            display: none;
+        }
+
         .card{
             padding: 1em;
             border-top: $color-primary solid 4px;
@@ -287,6 +292,12 @@ header{
                 }
             }
         }
+    }
+}
+
+.services-section{
+    .typo-services{
+        margin: 2em;
     }
 }
 
