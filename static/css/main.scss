@@ -8,28 +8,32 @@ $color-black: #000;
 *{
     margin: 0;
     padding: 0;
+    font-family: Inter;
+    list-style: none;
+    text-decoration: none;
 }
 
 body{
     overflow-x: hidden;
 }
 
+
+// NAVBAR
 header{
-    background-color: $color-primary;
-    padding: 25px 0px;
+    padding: 25px 0;
+
 
     nav{
         display: flex;
         margin: 0 auto;
         justify-content: space-between;
-        
-
+    
         .desk-list{
             display: none;
         }
 
         .nav-list{
-            z-index: 999;
+            z-index: 5;
             position: absolute;
             top: 80px;
             width: 100vw;
@@ -46,6 +50,19 @@ header{
                 margin-top: 3em;
             }
 
+            .sign-in{
+                a{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    .user-icon{
+                        margin-right: 10px;
+                    }
+                }
+                
+                
+            }
         }
 
         .active{
@@ -59,7 +76,6 @@ header{
             .line3{
                 transform: rotate(45deg) translate(-5px, -7px);
             }
-
         }
 
         .logo{
@@ -68,61 +84,45 @@ header{
             padding-left: 25px;
         }
 
-
         .desktop{
             display: none;
+
+            
+            .sign-in{
+                a{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    .user-icon{
+                        margin-right: 10px;
+                    }
+                }
+                
+                
+            }
+    
+
         }
 
         ul{
-
             li{
-                
                 list-style: none;
                 margin-right: 0em;
                 margin-bottom: 4em;
+
                 a{
                     text-decoration: none;
                     color: $color-white;
                     transition: 0.5s;
+
                     &:hover{
-                        color: $hover-white-color;
-                    }
-                }
-                
-                .user-logged{
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    .user-photo{
-                        width: 37px;
-                        height: 37px;
-                        border-radius: 100%;
-                        margin-right: 1em;
-                    }
-                    p{
-                        color: $color-white;
+                        color: $color-primary-dark;
                     }
                 }
 
-                #logout{
-                    text-transform: uppercase;
-                    color: $color-white;
-                    border-radius: 5px;
-                    border: 1.5px solid $color-white;
-                    background-color: $color-primary;
-                    width: 100px;
-                    height: 35px;
-                    transition: .5s;
-
-                    &:hover{
-                        cursor: pointer;
-                        background-color: $color-white;
-                        color: $color-primary;
-                    }
-                }
 
             }
-
         }
 
         .menu{
@@ -138,6 +138,113 @@ header{
                 transition: 0.3s;
             }   
 
+        }
+    }
+}
+
+// SECTION HERO 
+
+.hero-section{
+    .hero-background{
+        object-fit: cover;
+        width: 100vw;
+        height: 80vh;
+
+        position: absolute;
+        top: 0;
+        z-index: -1;
+    }
+
+    .typo{
+        h1{
+            font-size: 3.7em;
+            text-transform: uppercase;
+            color: $color-white;
+            margin-bottom: .3em;
+            max-width: 330px;
+        }
+
+        p{
+            color: $color-white;
+            font-weight: 400;
+            max-width: 330px;
+        }
+
+        .rent-ad{
+            margin-top: 2em;
+            a{
+                display: flex;
+                align-items: center;
+
+                .arrow{
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+}
+
+// RESPONSIVIDADE
+
+@media only screen and (min-width: 768px){
+    header{
+    
+        nav{
+            display: flex;
+            flex-direction: row;
+            margin: 0 auto;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+
+            .nav-list{
+                display: none;
+            }
+
+            .desk-list{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                li{
+                    min-width: 80px;
+                }
+            }
+
+            .desktop{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+            }
+
+            ul{
+                display: flex;
+                flex-direction: row;
+                li{
+                    margin-right: 0.9em;
+                    margin-bottom: 0em;
+                }
+            }
+            .menu{
+                display: none;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 920px){
+    header{
+        padding: 25px;
+        nav{
+            .logo{
+                width: 175px;
+                height: 39px;
+            }
+
+            ul{
+                li{
+                    margin-right: 3em;
+                }
+            }
         }
     }
 }
