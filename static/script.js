@@ -8,6 +8,15 @@ e.preventDefault()
 postCar()
 }
 
+// Tratando o Selector do cadastro de carros
+const selector = document.querySelector('#ano');
+
+for(i = 2000;i < 2024; i++){
+    let options = document.createElement('option');
+    options.innerText = i;
+    options.value = i
+    selector.appendChild(options);
+}
 
 // Função para remover o form de edição, caso ele exista, do dom.
 function removeEditFields() { 
@@ -32,11 +41,15 @@ function getCars(){
             json.cars.forEach(car => {
                 //document.getElementById('contacts').innerHTML += `<p>Nome: ${contact['name']}  Phone: ${contact['phone']}  <button onclick='showUpdateFields(${contact['id']})'>Editar </button><button onclick='deleteContact(${contact['id']})'>Deletar </button></p>`
                 document.getElementById('cars').innerHTML += `<div class="car">
+                                                                <div class="options">
+                                                                    <button class="edit" id="updateCarEdit" onclick='showUpdateFields(${car['id']})'>Edit</button>                        
+                                                                    <button class="remove" onclick='deleteCar(${car['id']})'>Remove</button>                        
+                                                                </div>
                                                                 <div class="diaria">
                                                                     <p>Valor da diária</p>
                                                                     <p id="money-per-day">R$ ${car['valor']}</p>
                                                                 </div>
-                                                                <img id="peugeot" src="../assets/Peugeot-amarelo.png" alt="car">
+                                                                <img id="peugeot" src="/static/assets/Peugeot-amarelo.png" alt="car">
                                                                 <div class="about-car">
                                                                     <div class="disponibility">
                                                                         <p>${car['status']}</p>
@@ -110,6 +123,11 @@ function showPostFields(){
         popAdd.style.display = "none";
     }
 
+    // Fechar no botao do close
+    let closeAdd = document.getElementById('close')
+    closeAdd.onclick = () => {
+        popAdd.style.display = "none";
+    }
 }
 
 // Função chamada ao clicar no botão para editar um contato, cria e exibe os campos para editar o contato.
@@ -179,6 +197,11 @@ function showUpdateFields(id){
         popEdit.append(container)
         
         document.body.appendChild(popEdit); 
+
+        let allowEdit = document.getElementById('updateCarEdit')
+        allowEdit.onclick = () => {
+            popEdit.style.display = "flex"
+        }
     }
 }
 

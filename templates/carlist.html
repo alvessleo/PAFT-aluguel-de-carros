@@ -13,7 +13,7 @@
 <body>
     <header>
         <nav>
-            <img class="logo" src="/assets/black-logo.svg" alt="logo">
+            <img class="logo" src="static/assets/black-logo.svg" alt="logo">
             <ul class="desk-list">
                 <li class="first-li"><a href="#">Home</a></li>
                 <li><a href="#">Serviços</a></li>
@@ -24,12 +24,12 @@
                 <li><a href="#">Serviços</a></li>
                 <li><a href="#">Carros</a></li>
                 <button class="cadastrar" id="cadastrar-veiculo" onclick="showPostFields()">Cadastrar veículo</button>
-                <li class="sign-in"><a href=""><img class="user-icon" src="../assets/signin-black.svg"><p>Entrar</p></a></li>
+                <li class="sign-in"><a href=""><img class="user-icon" src="static/assets/signin-black.svg"><p>Entrar</p></a></li>
 
             </ul>
             <ul class="desktop">
                 <button class="cadastrar" id="cadastrar-veiculo" onclick="showPostFields()">Cadastrar veículo</button>
-                <li class="sign-in"><a href=""><img class="user-icon" src="../assets/signin-black.svg"><p>Entrar</p></a></li>
+                <li class="sign-in"><a href=""><img class="user-icon" src="static/assets/signin-black.svg"><p>Entrar</p></a></li>
             </ul>
             <div class="menu">
                 <span class="line1"></span>
@@ -42,23 +42,34 @@
         <section class="carlist-section">
             <div id="pop-add">
                 <div class="container">
-                    <img id="close" src="../assets/close-icon.svg" alt="close">
-                    <img src="../assets/black-logo.svg" alt="logo">
+                    <img id="close" src="static/assets/close-icon.svg" alt="close">
+                    <img id="logo-create" src="static/assets/black-logo.svg" alt="logo">
                     <h1>Cadastre seu veículo</h1>
                     <form id="formAdd">
-                        <p id="p-modelo">
-                            <label for="modelo">Insira o modelo</label>
-                            <input type="text" name="modelo" id="modelo" placeholder="Modelo">
-                        </p>
-
                         <p id="p-marca">
                             <label for="marca">Insira a marca</label>
-                            <input type="text" name="marca" id="marca" placeholder="Marca">
+                            <!-- <input type="text" name="marca" id="marca" placeholder="Marca"> -->
+                            <select name="marca" id="marca">
+                                <option value="peugeot">Peugeot</option>
+                                <option value="fiat">Fiat</option>
+                            </select>
+                        </p>
+
+                        <p id="p-modelo">
+                            <label for="modelo">Insira o modelo</label>
+                            <!-- <input type="text" name="modelo" id="modelo" placeholder="Modelo"> -->
+                            <select name="modelo" id="modelo">
+                                <option value="208">208</option>
+                                <option value="fiat">Uno</option>
+                            </select>
                         </p>
                         
                         <p id="p-ano">
                             <label for="ano">Insira o ano</label>
-                            <input type="text" name="ano" id="ano" placeholder="Ano">
+                            <!-- <input type="text" name="ano" id="ano" placeholder="Ano"> -->
+                            <select name="ano" id="ano">
+
+                            </select>
                         </p>
 
                         <p id="p-observacao">
@@ -68,12 +79,17 @@
                         
                         <p id="p-valor">
                             <label for="valor">Insira o valor</label>
-                            <input type="text" name="valor" id="valor" placeholder="Valor diaria">
+                            <input type="number" name="valor" id="valor" placeholder="Valor diaria">
                         </p>
                         
                         <p id="p-status">
                             <label for="status">Insira o status</label>
-                            <input type="text" name="status" id="status" placeholder="Status">
+                            <!-- <input type="text" name="status" id="status" placeholder="Status"> -->
+                            <select name="status" id="status">
+                                <option value="DISPONÍVEL">Disponível</option>
+                                <option value="ALUGADO">Alugado</option>
+                                <option value="EM MANUTENÇÃO">Em manutenção</option>
+                            </select>
                         </p>
 
                         <button class="form-submit" id="form-add-confirm">Cadastrar carro</button>
@@ -87,7 +103,7 @@
                     <h1>Lista de carros</h1>
                     <div class="container">
                         <div id="cars">
-                            <div class="car">
+                            <!-- <div class="car">
                                 <div class="diaria">
                                     <p>Valor da diária</p>
                                     <p id="money-per-day">R$ ${car['valor']}</p>
@@ -103,7 +119,7 @@
                                     <p><span>Observações:</span> ${car['observacao']}</p>
                                     <button>Reservar</button>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
