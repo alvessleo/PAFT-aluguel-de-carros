@@ -365,4 +365,70 @@ footer .direitos {
     transform: translate(100px, 100px);
     max-width: 330px;
   }
+}
+@media only screen and (min-width: 1100px) {
+  .hero-section .typo {
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+  }
+  .hero-section .benefits {
+    justify-content: center;
+  }
+  .hero-section .benefits .item {
+    max-width: 347px;
+  }
+  .hero-section .benefits .second {
+    display: block;
+    background-color: #fff;
+    position: relative;
+  }
+  .hero-section .benefits .second::after {
+    position: absolute;
+    top: 0;
+    right: -90%;
+    content: "";
+    width: 400px;
+    height: 364px;
+    background-color: #fff;
+    border-right: 600px;
+  }
+  .frota-section {
+    max-width: 1170px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 3em 0;
+  }
+  .frota-section .cards .three {
+    display: block;
+  }
+  .frota-section .cards .three .blue {
+    margin: 1.55em 0;
+  }
+  .services-section {
+    max-width: 1170px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    transform: translateX(-30px);
+  }
+  .services-section .typo-services .logo-services {
+    width: 250px;
+  }
+  .services-section .typo-services .catch-phase {
+    font-size: 1.1em;
+  }
+  .services-section .typo-services .check p {
+    font-size: 1.1em;
+  }
+  .services-section .green-circle {
+    -webkit-clip-path: circle(50% at 50% 100%);
+            clip-path: circle(50% at 50% 100%);
+    border-radius: none;
+    width: 1100px;
+    /* height: 691px; */
+    transform: translate(218px, -81px);
+  }
 }/*# sourceMappingURL=main.css.map */
