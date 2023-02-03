@@ -32,7 +32,7 @@ header nav .nav-list {
   align-items: center;
   transform: translateX(100%);
   transition: transform 0.3s ease-in;
-  background: #99C46B;
+  background: #787878;
   margin-bottom: 1em;
 }
 header nav .nav-list .first-li {
@@ -414,6 +414,9 @@ footer .direitos {
     margin: 0 auto;
     transform: translateX(-30px);
   }
+  .services-section .typo-services {
+    margin-bottom: 4em;
+  }
   .services-section .typo-services .logo-services {
     width: 250px;
   }
@@ -429,6 +432,18 @@ footer .direitos {
     border-radius: none;
     width: 1100px;
     /* height: 691px; */
-    transform: translate(218px, -81px);
+    transform: translate(218px, -21px);
+  }
+  .services-section .green-circle p {
+    transform: translate(363px, 210px);
+  }
+  footer {
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    box-shadow: 0 0 0 100vmax #99C46B;
+    -webkit-clip-path: inset(0 -100vmax);
+            clip-path: inset(0 -100vmax);
   }
 }/*# sourceMappingURL=main.css.map */
