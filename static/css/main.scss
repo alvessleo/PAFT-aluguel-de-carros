@@ -192,7 +192,7 @@ header{
     .benefits{
         display: flex;
         background-color: $color-primary;
-
+        justify-content: space-between;
 
         .item{
             padding: 2em;
@@ -289,6 +289,7 @@ header{
 
                 &:hover{
                     background-color: $color-primary-dark;
+                    color: #fff;
                 }
             }
         }
@@ -296,6 +297,7 @@ header{
 }
 
 .services-section{
+    margin-bottom: 4em;
     .typo-services{
         margin: 4em 0 0 2em;
 
@@ -315,11 +317,16 @@ header{
             }
         }
     }
+
+    .green-circle{
+        display: none;
+    }
 }
 
 footer{
     background-color: $color-primary;
-    padding: 2em;
+    padding: 4em 0 3em 2em;
+    z-index: 100;
     .useful-links{
         display: flex;
         margin-bottom: 2em;
@@ -341,6 +348,9 @@ footer{
                 }
             }
         }
+    }
+    .direitos{
+        margin-top: 1em;
     }
 }
 
@@ -389,6 +399,18 @@ footer{
             }
         }
     }
+
+    .frota-section{
+        .cards{
+            display: flex;
+            .card{
+                margin-right: 2em;
+            }
+            .two{
+                display: block;
+            }
+        }
+    }
 }
 
 @media only screen and (min-width: 920px){
@@ -404,6 +426,35 @@ footer{
                 li{
                     margin-right: 3em;
                 }
+            }
+        }
+    }
+
+    .frota-section{
+        margin: 6em 2em 8em 2em;
+    }
+
+    .services-section{
+        position: relative;
+        .green-circle{
+            display: block;
+            background-color: $color-primary;
+            width: 530px;
+            height: 530px;
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            right: 0;
+            transform: translateX(40px);
+            z-index: -3;
+
+            p{
+                color: #fff;
+                font-size: 3.5em;
+                font-weight: 800;
+                text-align: center;
+                transform: translate(100px ,100px);
+                max-width: 330px;
             }
         }
     }

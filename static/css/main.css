@@ -145,6 +145,7 @@ header nav .menu span {
 .hero-section .benefits {
   display: flex;
   background-color: #99C46B;
+  justify-content: space-between;
 }
 .hero-section .benefits .item {
   padding: 2em;
@@ -227,8 +228,12 @@ header nav .menu span {
 }
 .frota-section .cards .card button:hover {
   background-color: #538B17;
+  color: #fff;
 }
 
+.services-section {
+  margin-bottom: 4em;
+}
 .services-section .typo-services {
   margin: 4em 0 0 2em;
 }
@@ -246,10 +251,14 @@ header nav .menu span {
 .services-section .typo-services .check svg {
   margin-right: 10px;
 }
+.services-section .green-circle {
+  display: none;
+}
 
 footer {
   background-color: #99C46B;
-  padding: 2em;
+  padding: 4em 0 3em 2em;
+  z-index: 100;
 }
 footer .useful-links {
   display: flex;
@@ -268,6 +277,9 @@ footer .useful-links .list p a {
 footer .useful-links .list p a:hover {
   margin-left: 0.5em;
   color: #34590d;
+}
+footer .direitos {
+  margin-top: 1em;
 }
 
 @media only screen and (min-width: 768px) {
@@ -306,6 +318,15 @@ footer .useful-links .list p a:hover {
   header nav .menu {
     display: none;
   }
+  .frota-section .cards {
+    display: flex;
+  }
+  .frota-section .cards .card {
+    margin-right: 2em;
+  }
+  .frota-section .cards .two {
+    display: block;
+  }
 }
 @media only screen and (min-width: 920px) {
   header {
@@ -317,5 +338,31 @@ footer .useful-links .list p a:hover {
   }
   header nav ul li {
     margin-right: 3em;
+  }
+  .frota-section {
+    margin: 6em 2em 8em 2em;
+  }
+  .services-section {
+    position: relative;
+  }
+  .services-section .green-circle {
+    display: block;
+    background-color: #99C46B;
+    width: 530px;
+    height: 530px;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translateX(40px);
+    z-index: -3;
+  }
+  .services-section .green-circle p {
+    color: #fff;
+    font-size: 3.5em;
+    font-weight: 800;
+    text-align: center;
+    transform: translate(100px, 100px);
+    max-width: 330px;
   }
 }/*# sourceMappingURL=main.css.map */
