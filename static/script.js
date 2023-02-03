@@ -26,7 +26,7 @@ function getCars(){
     .then(response => response.json())
     .then(json => {
         console.log("json", json)
-        // document.getElementById('cars').innerHTML = ""
+        document.getElementById('cars').innerHTML = ""
         if (json.cars) {
             json.cars.forEach(car => {
                 document.getElementById('cars').innerHTML += `<p>Modelo: ${car['modelo']}  Marca: ${car['marca']}  Ano: ${car['ano']}  Observacao: ${car['observacao']}  Valor: ${car['valor']}  Status: ${car['status']}  <button onclick='showUpdateFields(${car['id']})'>Editar </button><button onclick='deleteCar(${car['id']})'>Deletar </button></p>`
