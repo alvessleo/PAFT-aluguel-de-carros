@@ -1,0 +1,307 @@
+// ROOT
+
+$color-primary: #99C46B;
+$color-primary-dark: #538B17;
+$color-white: #fff;
+$color-black: #000;
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Inter;
+    list-style: none;
+    text-decoration: none;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+
+// NAVBAR
+header{
+    padding: 25px 0;
+
+
+    nav{
+        display: flex;
+        margin: 0 auto;
+        justify-content: space-between;
+    
+        .desk-list{
+            display: none;
+        }
+
+        .nav-list{
+            z-index: 5;
+            position: absolute;
+            top: 80px;
+            width: 100vw;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in;
+            background: #fff;
+            margin-bottom: 1em;
+
+            .cadastrar{
+                background-color: $color-primary;
+                color: $color-black;
+                font-weight: 400;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                height: 35px;
+                padding: 0 15px;
+                margin-bottom: 3em;
+                font-weight: 500;
+            }
+
+            .first-li{
+                margin-top: 3em;
+            }
+
+            .sign-in{
+                a{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    .user-icon{
+                        margin-right: 10px;
+                    }
+                }
+                
+                
+            }
+        }
+
+        .active{
+            transform: translateX(0%);
+            .line1{
+                transform: rotate(-45deg) translate(-8px, 8px);
+            }
+            .line2{
+                opacity: 0;
+            }
+            .line3{
+                transform: rotate(45deg) translate(-5px, -7px);
+            }
+        }
+
+        .logo{
+            width: 135px;
+            transform: translateY(-5px);
+            padding-left: 25px;
+        }
+
+        .desktop{
+            display: none;
+
+            .cadastrar{
+                background-color: $color-primary;
+                color: $color-black;
+                font-weight: 400;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                height: 35px;
+                padding: 0 15px;
+                margin-right: 30px;
+                font-weight: 500;
+                transition: .5s;
+
+                &:hover{
+                    background-color: $color-primary-dark;
+                    color: $color-white;
+                }
+            }
+
+            .sign-in{
+                a{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    .user-icon{
+                        margin-right: 10px;
+                    }
+                }
+                
+                
+            }
+    
+
+        }
+
+        ul{
+            li{
+                list-style: none;
+                margin-right: 0em;
+                margin-bottom: 4em;
+
+                a{
+                    text-decoration: none;
+                    color: $color-black;
+                    transition: 0.5s;
+
+                    &:hover{
+                        color: $color-primary-dark;
+                    }
+                }
+
+
+            }
+        }
+
+        .menu{
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            margin-right: 25px;
+            span{
+                width: 28px;
+                height: 3px;
+                background: $color-black;
+                margin: 3.5px;
+                transition: 0.3s;
+            }   
+
+        }
+    }
+}
+
+
+.carlist-section{
+    #pop-add{
+        display: none;
+        z-index: 999;
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba($color: black, $alpha: 0.5);
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+
+        .container{
+            background-color: #fff;
+            margin: auto;
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 15px;
+            border-radius: 10px;
+
+            #formAdd{
+                display: grid;
+                grid-template-areas: 
+                                    '1 1 4 4'
+                                    '2 2 5 5'
+                                    '3 3 6 6';
+                grid-template-columns: 150px 1fr;
+                
+                input{
+                    height: 35px;
+                    padding: 0 15px;
+                    border: none;
+                    border-radius: 5px;
+                    background-color: #DDDDDD;
+                    margin-bottom: 1em;
+                }
+
+                #p-modelo{
+                    grid-area: one;
+                }
+
+                #p-marca{
+                    grid-area: two;
+                }
+
+                #p-ano{
+                    grid-area: three;
+                }
+
+                #p-observacao{
+                    grid-area: four;
+                }
+
+                #p-valor{
+                    grid-area: five;
+                }
+
+                #p-status{
+                    grid-area: six;
+                }
+            }
+        }
+    }
+}
+
+// RESPONSIVIDADE
+@media only screen and (min-width: 768px){
+    header{
+    
+        nav{
+            display: flex;
+            flex-direction: row;
+            margin: 0 auto;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+
+            .nav-list{
+                display: none;
+            }
+
+            .desk-list{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                li{
+                    min-width: 80px;
+                }
+            }
+
+            .desktop{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+            }
+
+            ul{
+                display: flex;
+                flex-direction: row;
+                li{
+                    margin-right: 0.9em;
+                    margin-bottom: 0em;
+                }
+            }
+            .menu{
+                display: none;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 920px){
+    header{
+        padding: 25px;
+        nav{
+            .logo{
+                width: 175px;
+                height: 39px;
+            }
+
+            ul{
+                li{
+                    margin-right: 3em;
+                }
+            }
+        }
+    }
+}

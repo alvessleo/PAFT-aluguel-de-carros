@@ -8,6 +8,7 @@ e.preventDefault()
 postCar()
 }
 
+
 // Função para remover o form de edição, caso ele exista, do dom.
 function removeEditFields() { 
     editMode = false // Desative o modo edição
@@ -75,6 +76,23 @@ function postCar(){
     observacao.value = ""
     valor.value = ""
     status.value = ""
+}
+
+function showPostFields(){
+    // Liberar pop up ao clicar em cadastrar veiculo
+    let buttonAdd = document.getElementById("cadastrar-veiculo")
+    console.log(buttonAdd)
+
+    let popAdd = document.getElementById("pop-add")
+    console.log(popAdd)
+    popAdd.style.display = "block";
+
+    // Fechar pop up apos confirmar
+    let ConfirmAdd = document.getElementById('form-add-confirm')
+    ConfirmAdd.onclick = () => {
+        popAdd.style.display = "none";
+    }
+
 }
 
 // Função chamada ao clicar no botão para editar um contato, cria e exibe os campos para editar o contato.
