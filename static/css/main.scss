@@ -467,6 +467,16 @@ footer{
             display: flex;
             flex-direction: column;
             margin: 0 auto;
+
+            h1{
+                font-size: 4.2em;
+                max-width: 400px;
+            }
+
+            p{
+                font-size: 1.2em;
+                max-width: 400px;
+            }
         }
         .benefits{
             justify-content: center;

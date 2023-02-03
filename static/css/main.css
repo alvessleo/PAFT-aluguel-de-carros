@@ -373,6 +373,14 @@ footer .direitos {
     flex-direction: column;
     margin: 0 auto;
   }
+  .hero-section .typo h1 {
+    font-size: 4.2em;
+    max-width: 400px;
+  }
+  .hero-section .typo p {
+    font-size: 1.2em;
+    max-width: 400px;
+  }
   .hero-section .benefits {
     justify-content: center;
   }
