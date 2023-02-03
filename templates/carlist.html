@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Lista de carros</h1>
+    <form id="formAdd">
+        <label for="modelo">Insira o modelo</label>
+        <input type="text" name="modelo" id="modelo" placeholder="Modelo">
+
+        <label for="marca">Insira a marca</label>
+        <input type="text" name="marca" id="marca" placeholder="Marca">
+
+        <label for="ano">Insira o ano</label>
+        <input type="text" name="ano" id="ano" placeholder="Ano">
+
+        <label for="observacao">Insira a observacao</label>
+        <input type="text" name="observacao" id="observacao" placeholder="Obs">
+
+        <label for="valor">Insira o valor</label>
+        <input type="text" name="valor" id="valor" placeholder="Valor diaria">
+
+        <label for="status">Insira o status</label>
+        <input type="text" name="status" id="status" placeholder="Status">
+
+        <button class="form-submit">Cadastrar carro</button>
+    </form>
+    
+    <h2>Carros</h2>
+    <div class="container">
+        <div id="cars"></div>
+    </div>
+
+
+    <script src="{{url_for('static', filename='script.js')}}"></script>
+</body>
+</html>
