@@ -183,6 +183,54 @@ header nav .menu span {
 .carlist-section #pop-add .container #formAdd #p-status {
   grid-area: six;
 }
+.carlist-section .wrapper .typo-list .container #cars .car {
+  padding: 1em;
+  border-top: #99C46B solid 4px;
+  background: linear-gradient(180deg, #bebebe 0%, #FFFFFF 100%);
+  max-width: 350px;
+  width: 350px;
+}
+.carlist-section .wrapper .typo-list .container #cars .car .diaria p {
+  font-weight: 600;
+  font-size: 1.1em;
+}
+.carlist-section .wrapper .typo-list .container #cars .car .diaria #money-per-day {
+  font-size: 1.8em;
+}
+.carlist-section .wrapper .typo-list .container #cars .car #peugeot {
+  width: 360px;
+  transform: translateX(-10px);
+}
+.carlist-section .wrapper .typo-list .container #cars .car .about-car .disponibility {
+  background-color: #bebebe;
+  padding: 2px 8px;
+  border-radius: 20px;
+  text-align: center;
+  max-width: 140px;
+  margin-bottom: 1em;
+}
+.carlist-section .wrapper .typo-list .container #cars .car .about-car h3 {
+  font-size: 1.4em;
+  color: #538B17;
+  margin-bottom: 1em;
+}
+.carlist-section .wrapper .typo-list .container #cars .car .about-car p {
+  color: #676767;
+  margin-bottom: 10px;
+}
+.carlist-section .wrapper .typo-list .container #cars .car .about-car p span {
+  color: #000;
+  font-weight: 500;
+}
+.carlist-section .wrapper .typo-list .container #cars .car .about-car button {
+  background-color: #99C46B;
+  border: none;
+  width: 100%;
+  border-radius: 5px;
+  height: 40px;
+  font-size: 1.2em;
+  margin-top: 20px;
+}
 
 @media only screen and (min-width: 768px) {
   header nav {

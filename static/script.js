@@ -30,7 +30,24 @@ function getCars(){
         document.getElementById('cars').innerHTML = ""
         if (json.cars) {
             json.cars.forEach(car => {
-                document.getElementById('cars').innerHTML += `<p>Modelo: ${car['modelo']}  Marca: ${car['marca']}  Ano: ${car['ano']}  Observacao: ${car['observacao']}  Valor: ${car['valor']}  Status: ${car['status']}  <button onclick='showUpdateFields(${car['id']})'>Editar </button><button onclick='deleteCar(${car['id']})'>Deletar </button></p>`
+                //document.getElementById('contacts').innerHTML += `<p>Nome: ${contact['name']}  Phone: ${contact['phone']}  <button onclick='showUpdateFields(${contact['id']})'>Editar </button><button onclick='deleteContact(${contact['id']})'>Deletar </button></p>`
+                document.getElementById('cars').innerHTML += `<div class="car">
+                                                                <div class="diaria">
+                                                                    <p>Valor da diária</p>
+                                                                    <p id="money-per-day">R$ ${car['valor']}</p>
+                                                                </div>
+                                                                <img id="peugeot" src="../assets/Peugeot-amarelo.png" alt="car">
+                                                                <div class="about-car">
+                                                                    <div class="disponibility">
+                                                                        <p>${car['status']}</p>
+                                                                    </div>
+                                                                    <h3>${car['modelo']}</h3>
+                                                                    <p><span>Marca:</span> ${car['marca']}</p>
+                                                                    <p><span>Ano:</span> ${car['ano']}</p>
+                                                                    <p><span>Observações:</span> ${car['observacao']}</p>
+                                                                    <button>Reservar</button>
+                                                                </div>
+                                                            </div>`
             });
         } else {
             document.getElementById('cars').innerHTML = "Não há nenhum carro na lista!"

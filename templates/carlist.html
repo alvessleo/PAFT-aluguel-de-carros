@@ -83,19 +83,33 @@
             <div class="wrapper">
                 <hr>
                 <p class="href">Home/Lista de carros</p>
-                <div class="typo">
+                <div class="typo-list">
                     <h1>Lista de carros</h1>
+                    <div class="container">
+                        <div id="cars">
+                            <div class="car">
+                                <div class="diaria">
+                                    <p>Valor da diária</p>
+                                    <p id="money-per-day">R$ ${car['valor']}</p>
+                                </div>
+                                <img id="peugeot" src="../assets/Peugeot-amarelo.png" alt="car">
+                                <div class="about-car">
+                                    <div class="disponibility">
+                                        <p>${car['status']}</p>
+                                    </div>
+                                    <h3>${car['modelo']}</h3>
+                                    <p><span>Marca:</span> ${car['marca']}</p>
+                                    <p><span>Ano:</span> ${car['ano']}</p>
+                                    <p><span>Observações:</span> ${car['observacao']}</p>
+                                    <button>Reservar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
-        <h1>Lista de carros</h1>
 
-
-        
-        <h2>Carros</h2>
-        <div class="container">
-            <div id="cars"></div>
-        </div>
     </main>
     <script src="../static/nav.js"></script>
     <script src="{{url_for('static', filename='script.js')}}"></script>
