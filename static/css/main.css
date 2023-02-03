@@ -432,10 +432,10 @@ footer .direitos {
     border-radius: none;
     width: 1100px;
     /* height: 691px; */
-    transform: translate(218px, -21px);
+    transform: translate(270px, -21px);
   }
   .services-section .green-circle p {
-    transform: translate(363px, 210px);
+    transform: translate(380px, 210px);
   }
   footer {
     max-width: 1200px;
