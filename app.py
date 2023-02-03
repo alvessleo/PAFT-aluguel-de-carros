@@ -24,11 +24,11 @@ class Car(db.Model):
        self.status = status
 
     def as_dict(self):
-        return {c.modelo: getattr(self,c.modelo) for c in self.__table__.columns}
+        return {c.name: getattr(self,c.name) for c in self.__table__.columns}
 
 
 @app.route('/carlist',methods=['GET'])
-def contactlist():
+def carlist():
     return render_template('carlist.html')
 
 
