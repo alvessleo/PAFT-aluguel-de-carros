@@ -205,6 +205,8 @@ header{
 
 
 .carlist-section{
+    margin: 2em;
+
     #pop-add{
         display: none;
         z-index: 999;
@@ -297,7 +299,24 @@ header{
     }
 
     .wrapper{
+
+        hr{
+            opacity: 20%;
+            margin-top: -15px;
+            margin-bottom: 10px;
+        }
+
+        .href{
+            opacity: 30%;
+            margin-bottom: 1em;
+        }
+
         .typo-list{
+            h1{
+                color: #538B17;
+                font-size: 2.1em;
+                margin-bottom: 1.7em;
+            }
             .container{
                 #cars{
                     .car{
@@ -306,6 +325,45 @@ header{
                         background: linear-gradient(180deg, #bebebe 0%, #FFFFFF 100%);
                         max-width: 350px;
                         width: 350px;
+                        position: relative;
+
+                        .options{
+                            position: absolute;
+                            right: 0;
+                            margin-right: 20px;
+                            display: none;
+                            .edit{
+                                height: 40px;
+                                width: 40px;
+                                border-radius: 50%;
+                                border: none;
+                                cursor: pointer;
+                                background-color: #ff8000;
+
+                                img{
+                                    display: flex;
+                                    margin: 0 auto;
+                                    width: 19.5px;
+                                    transform: translate(1px, -.5px);
+                                }
+                            }
+
+                            .remove{
+                                border-radius: 50%;
+                                height: 40px;
+                                width: 40px;
+                                border: none;
+                                cursor: pointer;
+                                background-color: #dd0000;
+
+                                img{
+                                    display: flex;
+                                    margin: 0 auto;
+                                    width: 15px;
+                                }
+                            }
+                        }
+
                         .diaria{
                             p{
                                 font-weight: 600;

@@ -18,6 +18,18 @@ for(i = 2000;i < 2024; i++){
     selector.appendChild(options);
 }
 
+// Novas opcoes (EDITAR E REMOVER) ao hover no card
+function showMoreOptions() {
+    let options = document.getElementsByClassName('options')[0]
+    options.style.display = "block"
+}
+
+function hideOptions() {
+    let options = document.getElementsByClassName('options')[0]
+    options.style.display = "none"
+}
+
+
 // Função para remover o form de edição, caso ele exista, do dom.
 function removeEditFields() { 
     editMode = false // Desative o modo edição
@@ -40,10 +52,10 @@ function getCars(){
         if (json.cars) {
             json.cars.forEach(car => {
                 //document.getElementById('contacts').innerHTML += `<p>Nome: ${contact['name']}  Phone: ${contact['phone']}  <button onclick='showUpdateFields(${contact['id']})'>Editar </button><button onclick='deleteContact(${contact['id']})'>Deletar </button></p>`
-                document.getElementById('cars').innerHTML += `<div class="car">
+                document.getElementById('cars').innerHTML += `<div class="car" id="car-card" onmouseenter="showMoreOptions()" onmouseleave="hideOptions()">
                                                                 <div class="options">
-                                                                    <button class="edit" id="updateCarEdit" onclick='showUpdateFields(${car['id']})'>Edit</button>                        
-                                                                    <button class="remove" onclick='deleteCar(${car['id']})'>Remove</button>                        
+                                                                    <button class="edit" id="updateCarEdit" onclick='showUpdateFields(${car['id']})'><img src="static/assets/edit.svg"></button>                        
+                                                                    <button class="remove" onclick='deleteCar(${car['id']})'><img src="static/assets/remove.svg"></button>                        
                                                                 </div>
                                                                 <div class="diaria">
                                                                     <p>Valor da diária</p>

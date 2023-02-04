@@ -157,6 +157,9 @@ header nav .menu span {
   transition: 0.3s;
 }
 
+.carlist-section {
+  margin: 2em;
+}
 .carlist-section #pop-add {
   display: none;
   z-index: 999;
@@ -237,12 +240,60 @@ header nav .menu span {
   background-color: #538B17;
   color: #fff;
 }
+.carlist-section .wrapper hr {
+  opacity: 20%;
+  margin-top: -15px;
+  margin-bottom: 10px;
+}
+.carlist-section .wrapper .href {
+  opacity: 30%;
+  margin-bottom: 1em;
+}
+.carlist-section .wrapper .typo-list h1 {
+  color: #538B17;
+  font-size: 2.1em;
+  margin-bottom: 1.7em;
+}
 .carlist-section .wrapper .typo-list .container #cars .car {
   padding: 1em;
   border-top: #99C46B solid 4px;
   background: linear-gradient(180deg, #bebebe 0%, #FFFFFF 100%);
   max-width: 350px;
   width: 350px;
+  position: relative;
+}
+.carlist-section .wrapper .typo-list .container #cars .car .options {
+  position: absolute;
+  right: 0;
+  margin-right: 20px;
+  display: none;
+}
+.carlist-section .wrapper .typo-list .container #cars .car .options .edit {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  background-color: #ff8000;
+}
+.carlist-section .wrapper .typo-list .container #cars .car .options .edit img {
+  display: flex;
+  margin: 0 auto;
+  width: 19.5px;
+  transform: translate(1px, -0.5px);
+}
+.carlist-section .wrapper .typo-list .container #cars .car .options .remove {
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  border: none;
+  cursor: pointer;
+  background-color: #dd0000;
+}
+.carlist-section .wrapper .typo-list .container #cars .car .options .remove img {
+  display: flex;
+  margin: 0 auto;
+  width: 15px;
 }
 .carlist-section .wrapper .typo-list .container #cars .car .diaria p {
   font-weight: 600;
