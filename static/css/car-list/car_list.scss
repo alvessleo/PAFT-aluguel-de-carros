@@ -65,7 +65,7 @@ body{
                     margin: 1em 0;
                     font-size: 1.9em;
                     font-weight: 500;
-                    color: #538B17;
+                    color: #000;
                 }
                 input{
                     font-size: 1em;
@@ -349,6 +349,14 @@ header{
                     margin-top: 2em;
                     cursor: pointer;
                     transition: .5s;
+
+                    &:disabled{
+                        background-color: #b9b9b9;
+
+                        &:hover{
+                            background-color: #8a8a8a;
+                        }
+                    }
 
                     &:hover{
                         background-color: $color-primary-dark;

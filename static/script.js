@@ -72,10 +72,20 @@ function getCars(){
                                                                     <h3>${car['modelo']}</h3>
                                                                     <p><span>Marca:</span> ${car['marca']}</p>
                                                                     <p><span>Ano:</span> ${car['ano']}</p>
-                                                                    <p><span>Observações:</span> ${car['observacao']}</p>
+                                                                    <p><span>Observações:</span><span id="null-obs${count}">${car['observacao']}</span></p>
                                                                     <button>Reservar</button>
                                                                 </div>
                                                             </div>`
+
+                document.getElementById(`null-obs${count}`).style.fontWeight = "400"
+                document.getElementById(`null-obs${count}`).style.marginLeft = "5px"
+
+                if(car['observacao'] === ""){
+                    if(document.getElementById(`null-obs${count}`).innerText === ""){
+                        console.log('entrei')
+                        document.getElementById(`null-obs${count}`).innerText = "Nenhuma observação"
+                    }
+                }
 
 
                 if(car['status'] === 'DISPONÍVEL'){
@@ -123,14 +133,17 @@ function postCar(){
 
     modelo.value = ""
     marca.value = ""
-    ano.value = ""
+    ano.value = "2023"
     observacao.value = ""
     valor.value = ""
-    status.value = ""
+    status.value = "DISPONÍVEL"
 
 }
 
 function showPostFields(){
+    let buttonForm = document.getElementById('form-add-confirm');
+    buttonForm.disabled = true;
+
     // Liberar pop up ao clicar em cadastrar veiculo
     let buttonAdd = document.getElementById("cadastrar-veiculo")
 
@@ -152,6 +165,7 @@ function showPostFields(){
 
 // Função chamada ao clicar no botão para editar um contato, cria e exibe os campos para editar o contato.
 function showUpdateFields(id){
+
     if(!editMode) { // Se ele não estiver em modo de edição
         editMode = true // Ative o modo edição
 
@@ -259,7 +273,15 @@ function showUpdateFields(id){
         container.append(formEdit)
         popEdit.append(container)
         
-        document.body.appendChild(popEdit); 
+        document.body.appendChild(popEdit);
+        
+        let updateButtonForm = document.getElementById('confirmEditButton');
+        updateButtonForm.disabled = true; 
+
+        console.log('formEdit',formEdit)
+        formEdit.addEventListener('input', () => {
+            validateFormEdit()
+        })
 
         let allowEdit = document.getElementById('updateCarEdit')
         allowEdit.onclick = () => {
@@ -286,7 +308,6 @@ function updateCar(id, modelo, marca, ano, observacao, valor, status) {
         getCars()
     })
     .catch(error => console.error(error));
-
 }
 
 // Requisição DELETE para remover o contato da lista de contatos presente no servidor.
@@ -305,3 +326,52 @@ function deleteCar(id){
     })
     .catch(error => console.error(error));
 }
+
+let formAdd = document.getElementById('formAdd')
+let modelo = document.getElementById('modelo');
+let observacao = document.getElementById('observacao');
+let valor = document.getElementById('valor');
+let buttonForm = document.getElementById('form-add-confirm');
+
+
+function validateForm(){
+    let marca = document.getElementById('marca');
+    let modelo = document.getElementById('modelo');
+    let observacao = document.getElementById('observacao');
+    let valor = document.getElementById('valor');
+    let buttonForm = document.getElementById('form-add-confirm');
+
+    if(modelo.value.length < 1 || valor.value.length < 1 || marca.value.length < 1){
+        buttonForm.disabled = true;
+        console.log('botao desativado')
+    } else if(modelo.value.length > 1 && valor.value.length > 1 && marca.value.length > 1){
+        buttonForm.disabled = false;
+        console.log('botao ativado')
+    } else if(observacao.value.length < 1){
+        observacao.innerText = "Nenhuma observação"
+    }
+
+}
+
+formAdd.addEventListener('input', () => {
+    validateForm()
+})
+
+function validateFormEdit(){
+    let updateMarca = document.getElementById('updateMarca');
+    let updateModelo = document.getElementById('updateModelo');
+    let updateObservacao = document.getElementById('updateObservacao');
+    let updateValor = document.getElementById('updateValor');
+    let updateButtonForm = document.getElementById('confirmEditButton');
+
+    if(updateModelo.value.length < 1 || updateValor.value.length < 1 || updateMarca.value.length < 1){
+        updateButtonForm.disabled = true;
+        console.log('botao desativado')
+    } else if(updateModelo.value.length > 1 && updateValor.value.length > 1 && updateMarca.value.length > 1){
+        updateButtonForm.disabled = false;
+        console.log('botao ativado')
+    } else if(updateObservacao.value.length < 1){
+        updateObservacao.innerText = "Nenhuma observação"
+    }
+}
+

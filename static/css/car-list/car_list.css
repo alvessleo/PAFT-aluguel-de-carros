@@ -52,7 +52,7 @@ body #popEdit #containerPop #formEdit #title {
   margin: 1em 0;
   font-size: 1.9em;
   font-weight: 500;
-  color: #538B17;
+  color: #000;
 }
 body #popEdit #containerPop #formEdit input {
   font-size: 1em;
@@ -286,6 +286,12 @@ header nav .menu span {
   margin-top: 2em;
   cursor: pointer;
   transition: 0.5s;
+}
+.carlist-section #pop-add .container #formAdd button:disabled {
+  background-color: #b9b9b9;
+}
+.carlist-section #pop-add .container #formAdd button:disabled:hover {
+  background-color: #8a8a8a;
 }
 .carlist-section #pop-add .container #formAdd button:hover {
   background-color: #538B17;
