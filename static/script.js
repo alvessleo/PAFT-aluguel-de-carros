@@ -18,16 +18,18 @@ for(i = 2000;i < 2024; i++){
     selector.appendChild(options);
 }
 
-// Novas opcoes (EDITAR E REMOVER) ao hover no card
-function showMoreOptions() {
-    let options = document.getElementsByClassName('options')[0]
-    options.style.display = "block"
-}
 
-function hideOptions() {
-    let options = document.getElementsByClassName('options')[0]
-    options.style.display = "none"
-}
+
+// Novas opcoes (EDITAR E REMOVER) ao hover no card
+// function showMoreOptions(id) {
+//     let options = document.getElementById('options')
+//     options.style.opacity = "1"
+// }
+
+// function hideOptions(id) {
+//     let options = document.getElementById('options')
+//     options.style.opacity = "0"
+// }
 
 
 // Função para remover o form de edição, caso ele exista, do dom.
@@ -52,8 +54,8 @@ function getCars(){
         if (json.cars) {
             json.cars.forEach(car => {
                 //document.getElementById('contacts').innerHTML += `<p>Nome: ${contact['name']}  Phone: ${contact['phone']}  <button onclick='showUpdateFields(${contact['id']})'>Editar </button><button onclick='deleteContact(${contact['id']})'>Deletar </button></p>`
-                document.getElementById('cars').innerHTML += `<div class="car" id="car-card" onmouseenter="showMoreOptions()" onmouseleave="hideOptions()">
-                                                                <div class="options">
+                document.getElementById('cars').innerHTML += `<div class="car" id="car-card">
+                                                                <div class="options" id="options">
                                                                     <button class="edit" id="updateCarEdit" onclick='showUpdateFields(${car['id']})'><img src="static/assets/edit.svg"></button>                        
                                                                     <button class="remove" onclick='deleteCar(${car['id']})'><img src="static/assets/remove.svg"></button>                        
                                                                 </div>
@@ -63,8 +65,8 @@ function getCars(){
                                                                 </div>
                                                                 <img id="peugeot" src="/static/assets/Peugeot-amarelo.png" alt="car">
                                                                 <div class="about-car">
-                                                                    <div class="disponibility">
-                                                                        <p>${car['status']}</p>
+                                                                    <div class="disponibility" id="status-disp">
+                                                                        <p class="label" id="label-status">${car['status']}</p>
                                                                     </div>
                                                                     <h3>${car['modelo']}</h3>
                                                                     <p><span>Marca:</span> ${car['marca']}</p>
@@ -112,6 +114,7 @@ function postCar(){
         getCars()
     })
     .catch(error => console.error(error));
+
     modelo.value = ""
     marca.value = ""
     ano.value = ""
@@ -144,11 +147,15 @@ function showPostFields(){
 
 // Função chamada ao clicar no botão para editar um contato, cria e exibe os campos para editar o contato.
 function showUpdateFields(id){
+    console.log(id, "entrei")
     if(!editMode) { // Se ele não estiver em modo de edição
         editMode = true // Ative o modo edição
-        
+        console.log(id, "dentro do if")
+
         let popEdit = document.createElement('div')
         popEdit.setAttribute('id', 'popEdit')
+
+        popEdit.style.display = "flex"
 
         let container = document.createElement('div')
         container.setAttribute('id', 'containerPop')
@@ -157,23 +164,50 @@ function showUpdateFields(id){
         title.setAttribute('id', 'title')
         title.innerText = "Atualize seu carro"
 
+        let logoClose = document.createElement('div')
+        logoClose.setAttribute('id', 'logo-close')
+        let logo = document.createElement('img')
+        logo.setAttribute('id', 'logo-edit')
+        logo.setAttribute('src', 'static/assets/black-logo.svg')
+        let close = document.createElement('img')
+        close.setAttribute('id', 'close-edit')
+        close.setAttribute('src', 'static/assets/close-icon.svg')
+        logoClose.append(logo, close)
+
+        close.onclick = () => {
+            popEdit.style.display = "none"
+        }
+
         let inputModelo = document.createElement('input')
         inputModelo.type = "text";
         inputModelo.setAttribute('name', 'updateModelo')
         inputModelo.setAttribute('id', 'updateModelo')
         inputModelo.setAttribute('placeholder', 'Insira o novo modelo')
         
-        let inputMarca = document.createElement('input')
-        inputMarca.type = "text";
-        inputMarca.setAttribute('name', 'updateMarca')
-        inputMarca.setAttribute('id', 'updateMarca')
-        inputMarca.setAttribute('placeholder', 'Insira a nova marca')
-        
-        let inputAno = document.createElement('input')
-        inputAno.type = "text";
-        inputAno.setAttribute('name', 'updateAno')
-        inputAno.setAttribute('id', 'updateAno')
-        inputAno.setAttribute('placeholder', 'Insira o novo ano')
+        let selectMarca = document.createElement('select')
+        selectMarca.setAttribute('name', 'updateMarca')
+        selectMarca.setAttribute('id', 'updateMarca')
+        let optMarca = document.createElement('option')
+        optMarca.setAttribute('value', 'Peugeot')
+        optMarca.innerText = "Peugoet"
+        let optMarca2 = document.createElement('option')
+        optMarca2.setAttribute('value', 'Fiat')
+        optMarca2.innerText = "Fiat"
+        let optMarca3 = document.createElement('option')
+        optMarca3.setAttribute('value', 'Volkswagen')
+        optMarca3.innerText = "Volkswagen"
+        selectMarca.append(optMarca, optMarca2, optMarca3)
+
+        let selectAno = document.createElement('select')
+        selectAno.setAttribute('name', 'updateAno')
+        selectAno.setAttribute('id', 'updateAno')
+
+        for(i = 2000;i < 2024; i++){
+            let options = document.createElement('option');
+            options.innerText = i;
+            options.value = i
+            selectAno.appendChild(options);
+        }
         
         let inputObservacao = document.createElement('input')
         inputObservacao.type = "text";
@@ -182,7 +216,7 @@ function showUpdateFields(id){
         inputObservacao.setAttribute('placeholder', 'Insira a nova observacao')
         
         let inputValor = document.createElement('input')
-        inputValor.type = "text";
+        inputValor.type = "number";
         inputValor.setAttribute('name', 'updateValor')
         inputValor.setAttribute('id', 'updateValor')
         inputValor.setAttribute('placeholder', 'Insira o novo valor')
@@ -192,6 +226,20 @@ function showUpdateFields(id){
         inputStatus.setAttribute('name', 'updateStatus')
         inputStatus.setAttribute('id', 'updateStatus')
         inputStatus.setAttribute('placeholder', 'Insira o novo status')
+        
+        let selectStatus = document.createElement('select') 
+        selectStatus.setAttribute('name', 'updateStatus')
+        selectStatus.setAttribute('id', 'updateStatus')
+        let status1 = document.createElement('option')
+        status1.setAttribute('value', 'DISPONÍVEL')
+        status1.innerText = "Disponível"
+        let status2 = document.createElement('option')
+        status2.setAttribute('value', 'ALUGADO')
+        status2.innerText = "Alugado"
+        let status3 = document.createElement('option')
+        status3.setAttribute('value', 'EM MANUTENÇÃO')
+        status3.innerText = "Em manutenção"
+        selectStatus.append(status1, status2, status3)
 
         let confirmEditButton = document.createElement("button") 
         confirmEditButton.setAttribute("id", "confirmEditButton")
@@ -199,10 +247,10 @@ function showUpdateFields(id){
 
         let formEdit = document.createElement('form')
         formEdit.setAttribute('id', 'formEdit')
-        formEdit.append(title, inputModelo, inputMarca, inputAno, inputObservacao, inputValor, inputStatus, confirmEditButton)
+        formEdit.append(logoClose ,title, inputModelo, selectMarca, selectAno, inputObservacao, inputValor, selectStatus, confirmEditButton)
         formEdit.onsubmit = (e) => {
             e.preventDefault();
-            updateCar(id,inputModelo.value,inputMarca.value,inputAno.value,inputObservacao.value,inputValor.value,inputStatus.value);
+            updateCar(id,inputModelo.value,selectMarca.value,selectAno.value,inputObservacao.value,inputValor.value,selectStatus.value);
         }
 
         container.append(formEdit)

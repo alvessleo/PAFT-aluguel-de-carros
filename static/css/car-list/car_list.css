@@ -25,6 +25,7 @@ body #popEdit #containerPop {
   background-color: #fff;
   margin: auto;
   max-width: 500px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -34,7 +35,57 @@ body #popEdit #containerPop {
   transform: translateY(10px);
 }
 body #popEdit #containerPop #formEdit {
-  background-color: red;
+  font-size: 1em;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+body #popEdit #containerPop #formEdit #logo-close #logo-edit {
+  width: 150px;
+}
+body #popEdit #containerPop #formEdit #logo-close #close-edit {
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+}
+body #popEdit #containerPop #formEdit #title {
+  margin: 1em 0;
+  font-size: 1.9em;
+  font-weight: 500;
+  color: #538B17;
+}
+body #popEdit #containerPop #formEdit input {
+  font-size: 1em;
+  height: 35px;
+  padding: 0 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #DDDDDD;
+  margin-bottom: 1em;
+}
+body #popEdit #containerPop #formEdit select {
+  font-size: 1em;
+  height: 35px;
+  padding: 0 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #DDDDDD;
+  margin-bottom: 1em;
+}
+body #popEdit #containerPop #formEdit button {
+  background-color: #99C46B;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  height: 40px;
+  font-size: 1.1em;
+  margin-top: 2em;
+  cursor: pointer;
+  transition: 0.5s;
+}
+body #popEdit #containerPop #formEdit button:hover {
+  background-color: #538B17;
+  color: #fff;
 }
 
 header {
@@ -49,7 +100,7 @@ header nav .desk-list {
   display: none;
 }
 header nav .nav-list {
-  z-index: 5;
+  z-index: 999;
   position: absolute;
   top: 80px;
   width: 100vw;
@@ -254,19 +305,41 @@ header nav .menu span {
   font-size: 2.1em;
   margin-bottom: 1.7em;
 }
+.carlist-section .wrapper .typo-list .container #cars {
+  display: flex;
+  flex-wrap: wrap;
+}
 .carlist-section .wrapper .typo-list .container #cars .car {
   padding: 1em;
   border-top: #99C46B solid 4px;
   background: linear-gradient(180deg, #bebebe 0%, #FFFFFF 100%);
-  max-width: 350px;
-  width: 350px;
+  max-width: 310px;
+  width: 310px;
   position: relative;
+  transition: 2s;
+  margin-right: 2em;
+  margin-bottom: 3em;
+}
+.carlist-section .wrapper .typo-list .container #cars .car:hover {
+  transition: 2s;
+}
+.carlist-section .wrapper .typo-list .container #cars .car:hover::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(180deg, #99C46B 0%, #FFFFFF 100%);
+  margin: -1em;
+  -webkit-animation: Hover 1s forwards;
+          animation: Hover 1s forwards;
+  transform: translateY(12px);
 }
 .carlist-section .wrapper .typo-list .container #cars .car .options {
+  margin-right: 20px;
+  z-index: 99;
   position: absolute;
   right: 0;
-  margin-right: 20px;
-  display: none;
 }
 .carlist-section .wrapper .typo-list .container #cars .car .options .edit {
   height: 40px;
@@ -274,6 +347,7 @@ header nav .menu span {
   border-radius: 50%;
   border: none;
   cursor: pointer;
+  z-index: 2;
   background-color: #ff8000;
 }
 .carlist-section .wrapper .typo-list .container #cars .car .options .edit img {
@@ -289,11 +363,16 @@ header nav .menu span {
   border: none;
   cursor: pointer;
   background-color: #dd0000;
+  z-index: 99;
 }
 .carlist-section .wrapper .typo-list .container #cars .car .options .remove img {
   display: flex;
   margin: 0 auto;
   width: 15px;
+}
+.carlist-section .wrapper .typo-list .container #cars .car .diaria {
+  z-index: 2;
+  position: relative;
 }
 .carlist-section .wrapper .typo-list .container #cars .car .diaria p {
   font-weight: 600;
@@ -303,16 +382,28 @@ header nav .menu span {
   font-size: 1.8em;
 }
 .carlist-section .wrapper .typo-list .container #cars .car #peugeot {
-  width: 360px;
-  transform: translateX(-10px);
+  z-index: 2;
+  position: relative;
+  width: 330px;
+  transform: translateX(-13px);
+}
+.carlist-section .wrapper .typo-list .container #cars .car .about-car {
+  position: relative;
+  z-index: 2;
 }
 .carlist-section .wrapper .typo-list .container #cars .car .about-car .disponibility {
-  background-color: #bebebe;
-  padding: 2px 8px;
+  background-color: #ff0000;
+  padding: 2px 0px;
   border-radius: 20px;
   text-align: center;
   max-width: 140px;
   margin-bottom: 1em;
+  font-weight: 500;
+  z-index: 5;
+}
+.carlist-section .wrapper .typo-list .container #cars .car .about-car .disponibility .label {
+  margin-bottom: 0px;
+  padding: 0 4px;
 }
 .carlist-section .wrapper .typo-list .container #cars .car .about-car h3 {
   font-size: 1.4em;
@@ -320,7 +411,7 @@ header nav .menu span {
   margin-bottom: 1em;
 }
 .carlist-section .wrapper .typo-list .container #cars .car .about-car p {
-  color: #676767;
+  color: #000000;
   margin-bottom: 10px;
 }
 .carlist-section .wrapper .typo-list .container #cars .car .about-car p span {
@@ -335,6 +426,7 @@ header nav .menu span {
   height: 40px;
   font-size: 1.2em;
   margin-top: 20px;
+  cursor: pointer;
 }
 
 @media only screen and (min-width: 768px) {
@@ -384,5 +476,26 @@ header nav .menu span {
   }
   header nav ul li {
     margin-right: 3em;
+  }
+  .carlist-section .wrapper {
+    margin: 2em;
+    max-width: 1150px;
+    margin: 0 auto;
+  }
+}
+@-webkit-keyframes Hover {
+  0% {
+    height: 4px;
+  }
+  100% {
+    height: 100%;
+  }
+}
+@keyframes Hover {
+  0% {
+    height: 4px;
+  }
+  100% {
+    height: 100%;
   }
 }/*# sourceMappingURL=car_list.css.map */
