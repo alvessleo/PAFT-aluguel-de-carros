@@ -52,8 +52,9 @@ function getCars(){
         console.log("json", json)
         document.getElementById('cars').innerHTML = ""
         if (json.cars) {
+            let count = 0
             json.cars.forEach(car => {
-                //document.getElementById('contacts').innerHTML += `<p>Nome: ${contact['name']}  Phone: ${contact['phone']}  <button onclick='showUpdateFields(${contact['id']})'>Editar </button><button onclick='deleteContact(${contact['id']})'>Deletar </button></p>`
+                count++
                 document.getElementById('cars').innerHTML += `<div class="car" id="car-card">
                                                                 <div class="options" id="options">
                                                                     <button class="edit" id="updateCarEdit" onclick='showUpdateFields(${car['id']})'><img src="static/assets/edit.svg"></button>                        
@@ -65,7 +66,7 @@ function getCars(){
                                                                 </div>
                                                                 <img id="peugeot" src="/static/assets/Peugeot-amarelo.png" alt="car">
                                                                 <div class="about-car">
-                                                                    <div class="disponibility" id="status-disp">
+                                                                    <div class="disponibility" id="status-disp${count}">
                                                                         <p class="label" id="label-status">${car['status']}</p>
                                                                     </div>
                                                                     <h3>${car['modelo']}</h3>
@@ -75,7 +76,17 @@ function getCars(){
                                                                     <button>Reservar</button>
                                                                 </div>
                                                             </div>`
+
+
+                if(car['status'] === 'DISPONÍVEL'){
+                    document.getElementById(`status-disp${count}`).style.backgroundColor = "#99C46B"
+                } else if(car['status'] === 'ALUGADO'){
+                    document.getElementById(`status-disp${count}`).style.backgroundColor = "rgb(255, 125, 125)"
+                } else(
+                    document.getElementById(`status-disp${count}`).style.backgroundColor = "rgb(253, 255, 125)"
+                )
             });
+
         } else {
             document.getElementById('cars').innerHTML = "Não há nenhum carro na lista!"
         }
@@ -96,11 +107,6 @@ function postCar(){
 
     const data = {"modelo":modelo.value,"marca":marca.value,"ano":ano.value,"observacao":observacao.value,"valor":valor.value,"status":status.value}
 
-    // Usando o framework axios
-    // axios.post(url,{'name':name.value,"phone":phone.value})
-    // .then(response => {
-    //     console.log(response)
-    // })
     fetch(url, {
         method: "POST",
         headers: {
@@ -121,15 +127,14 @@ function postCar(){
     observacao.value = ""
     valor.value = ""
     status.value = ""
+
 }
 
 function showPostFields(){
     // Liberar pop up ao clicar em cadastrar veiculo
     let buttonAdd = document.getElementById("cadastrar-veiculo")
-    console.log(buttonAdd)
 
     let popAdd = document.getElementById("pop-add")
-    console.log(popAdd)
     popAdd.style.display = "block";
 
     // Fechar pop up apos confirmar
@@ -147,10 +152,8 @@ function showPostFields(){
 
 // Função chamada ao clicar no botão para editar um contato, cria e exibe os campos para editar o contato.
 function showUpdateFields(id){
-    console.log(id, "entrei")
     if(!editMode) { // Se ele não estiver em modo de edição
         editMode = true // Ative o modo edição
-        console.log(id, "dentro do if")
 
         let popEdit = document.createElement('div')
         popEdit.setAttribute('id', 'popEdit')

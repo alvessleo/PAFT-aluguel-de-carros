@@ -57,11 +57,11 @@
 
                         <p id="p-modelo">
                             <label for="modelo">Insira o modelo</label>
-                            <!-- <input type="text" name="modelo" id="modelo" placeholder="Modelo"> -->
-                            <select name="modelo" id="modelo">
+                            <input type="text" name="modelo" id="modelo" placeholder="Modelo">
+                            <!-- <select name="modelo" id="modelo">
                                 <option value="208">208</option>
                                 <option value="fiat">Uno</option>
-                            </select>
+                            </select> -->
                         </p>
                         
                         <p id="p-ano">
@@ -110,7 +110,7 @@
                                 </div>
                                 <img id="peugeot" src="../assets/Peugeot-amarelo.png" alt="car">
                                 <div class="about-car">
-                                    <div class="disponibility">
+                                    <div class="disponibility" id="status-disp">
                                         <p>${car['status']}</p>
                                     </div>
                                     <h3>${car['modelo']}</h3>

@@ -4,6 +4,7 @@ $color-primary: #99C46B;
 $color-primary-dark: #538B17;
 $color-white: #fff;
 $color-black: #000;
+$color-teste: rgb(253, 255, 125);
 
 *{
     margin: 0;
@@ -427,6 +428,11 @@ header{
                                 cursor: pointer;
                                 z-index: 2;
                                 background-color: #ff8000;
+                                transition: .5s;
+
+                                &:hover{
+                                    background-color: #c46200;
+                                }
 
                                 img{
                                     display: flex;
@@ -444,6 +450,11 @@ header{
                                 cursor: pointer;
                                 background-color: #dd0000;
                                 z-index: 99;
+                                transition: .5s;
+
+                                &:hover{
+                                    background-color: #9a0000;
+                                }
 
                                 img{
                                     display: flex;
@@ -478,17 +489,17 @@ header{
                             z-index: 2;
                             .disponibility{
                                 background-color: #ff0000;
-                                padding: 2px 0px;
+                                padding: 2px 20px;
                                 border-radius: 20px;
                                 text-align: center;
-                                max-width: 140px;
+                                width: fit-content;
                                 margin-bottom: 1em;
                                 font-weight: 500;
                                 z-index: 5;
 
                                 .label{
+                                    width: 100%;
                                     margin-bottom: 0px;
-                                    padding: 0 4px;
                                 }
                             }
 
@@ -516,6 +527,12 @@ header{
                                 font-size: 1.2em;
                                 margin-top: 20px;
                                 cursor: pointer;
+                                transition: .5s;
+
+                                &:hover{
+                                    background-color: #538B17;
+                                    color: #fff;
+                                }
                             }
                         }
                     }

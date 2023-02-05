@@ -349,6 +349,10 @@ header nav .menu span {
   cursor: pointer;
   z-index: 2;
   background-color: #ff8000;
+  transition: 0.5s;
+}
+.carlist-section .wrapper .typo-list .container #cars .car .options .edit:hover {
+  background-color: #c46200;
 }
 .carlist-section .wrapper .typo-list .container #cars .car .options .edit img {
   display: flex;
@@ -364,6 +368,10 @@ header nav .menu span {
   cursor: pointer;
   background-color: #dd0000;
   z-index: 99;
+  transition: 0.5s;
+}
+.carlist-section .wrapper .typo-list .container #cars .car .options .remove:hover {
+  background-color: #9a0000;
 }
 .carlist-section .wrapper .typo-list .container #cars .car .options .remove img {
   display: flex;
@@ -393,17 +401,19 @@ header nav .menu span {
 }
 .carlist-section .wrapper .typo-list .container #cars .car .about-car .disponibility {
   background-color: #ff0000;
-  padding: 2px 0px;
+  padding: 2px 20px;
   border-radius: 20px;
   text-align: center;
-  max-width: 140px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   margin-bottom: 1em;
   font-weight: 500;
   z-index: 5;
 }
 .carlist-section .wrapper .typo-list .container #cars .car .about-car .disponibility .label {
+  width: 100%;
   margin-bottom: 0px;
-  padding: 0 4px;
 }
 .carlist-section .wrapper .typo-list .container #cars .car .about-car h3 {
   font-size: 1.4em;
@@ -427,6 +437,11 @@ header nav .menu span {
   font-size: 1.2em;
   margin-top: 20px;
   cursor: pointer;
+  transition: 0.5s;
+}
+.carlist-section .wrapper .typo-list .container #cars .car .about-car button:hover {
+  background-color: #538B17;
+  color: #fff;
 }
 
 @media only screen and (min-width: 768px) {
