@@ -102,6 +102,14 @@ body{
                         background-color: $color-primary-dark;
                         color: $color-white;
                     }
+
+                    &:disabled{
+                        background-color: #b9b9b9;
+
+                        &:hover{
+                            background-color: #8a8a8a;
+                        }
+                    }
                 }
             }
         }
@@ -400,11 +408,9 @@ header{
                         transition: 2s;
                         margin-right: 2em;
                         margin-bottom: 3em;
-                        
+
                         &:hover{
                             transition: 2s;
-                            // background: linear-gradient(180deg, #99C46B 0%, #FFFFFF 100%);
-
 
                             &::after{
                                 content: '';
@@ -416,6 +422,7 @@ header{
                                 margin: -1em;
                                 animation: Hover 1s forwards;
                                 transform: translateY(12px);
+                                
                             }
                         }
 
@@ -544,6 +551,72 @@ header{
                             }
                         }
                     }
+
+                    .not-found{
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        margin: 0 auto;
+                        transform: translateY(50px);
+
+                        .search-img{
+                            width: 100px;
+                            display: flex;
+                            margin: 0 auto;
+                        }
+
+                        .none-title{
+                            font-size: 1.2em;
+                            margin-top: 2em;
+                            font-size: 400;
+                            margin-bottom: .5em;
+                        }
+
+                        .none-subtitle{
+                            color: #8a8a8a;
+                            font-weight: 300;
+                            font-size: 1em;
+                            margin-bottom: 1.5em;
+                        }
+
+                        .none-button{
+                
+                            .cadastar-two{
+                                height: 35px;
+                                border: none;
+                                background-color: $color-primary;
+                                border-radius: 5px;
+                                padding: 0 15px;
+                                cursor: pointer;
+                                transition: .5s;
+                                font-size: 1em;
+
+                                &:hover{
+                                    background-color: $color-primary-dark;
+                                    color: $color-white;
+                                }
+                            }
+
+                            .back-home{
+                                height: 35px;
+                                border: none;
+                                border-radius: 5px;
+                                background-color: #fff;
+                                border: 1px #8a8a8a solid;
+                                padding: 0 15px;
+                                cursor: pointer;
+                                transition: .5s;
+                                font-size: 1em;
+
+                                &:hover{
+                                    background-color: $color-black;
+                                    color: $color-white;
+                                    border: none;
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -629,5 +702,14 @@ header{
     }
     100%{
         height: 100%;
+    }
+}
+
+@keyframes HoverReverse{
+    0%{
+        height: 100%;
+    }
+    100%{
+        height: 4px;
     }
 }

@@ -55,6 +55,16 @@ function getCars(){
             let count = 0
             json.cars.forEach(car => {
                 count++
+
+                let image = "/static/assets/"
+
+                if(car['marca'] === "Fiat"){
+                    image += "peugeot-azul.png"
+                } else if(car['marca'] === "Peugeot"){
+                    image += "Peugeot-amarelo.png"
+                }
+                let peugeot = "/static/assets/Peugeot-amarelo.png"
+                let uno = "/static/assets/peugeot-azul.png"
                 document.getElementById('cars').innerHTML += `<div class="car" id="car-card">
                                                                 <div class="options" id="options">
                                                                     <button class="edit" id="updateCarEdit" onclick='showUpdateFields(${car['id']})'><img src="static/assets/edit.svg"></button>                        
@@ -64,7 +74,7 @@ function getCars(){
                                                                     <p>Valor da diária</p>
                                                                     <p id="money-per-day">R$ ${car['valor']}</p>
                                                                 </div>
-                                                                <img id="peugeot" src="/static/assets/Peugeot-amarelo.png" alt="car">
+                                                                <img id="peugeot" src="${image}" alt="car">
                                                                 <div class="about-car">
                                                                     <div class="disponibility" id="status-disp${count}">
                                                                         <p class="label" id="label-status">${car['status']}</p>
@@ -98,7 +108,15 @@ function getCars(){
             });
 
         } else {
-            document.getElementById('cars').innerHTML = "Não há nenhum carro na lista!"
+            document.getElementById('cars').innerHTML = `<div class="not-found">
+                                                            <img class="search-img" src="static/assets/search.svg" alt="search">
+                                                            <p class="none-title">Não existe nenhum carro na lista no momento</p>
+                                                            <p class="none-subtitle">Você pode cadastrar um novo carro</p>
+                                                            <div class="none-button">
+                                                                <button class="cadastar-two" onclick="showPostFields()">Cadastrar veículo</button>
+                                                                <button class="back-home" onclick="window.location='http://127.0.0.1:5500/index.html'">Voltar a Home</button>
+                                                            </div>
+                                                        </div>`
         }
         
     })

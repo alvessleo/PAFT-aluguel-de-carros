@@ -13,14 +13,17 @@
 <body>
     <header>
         <nav>
-            <img class="logo" src="static/assets/black-logo.svg" alt="logo">
+            <a href="http://127.0.0.1:5500/index.html">
+                <img class="logo" src="static/assets/black-logo.svg" alt="logo">
+            </a>
+
             <ul class="desk-list">
-                <li class="first-li"><a href="#">Home</a></li>
+                <li class="first-li"><a href="http://127.0.0.1:5500/index.html">Home</a></li>
                 <li><a href="#">Serviços</a></li>
                 <li><a href="#">Carros</a></li> 
             </ul>
             <ul class="nav-list">
-                <li class="first-li"><a href="#">Home</a></li>
+                <li class="first-li"><a href="http://127.0.0.1:5500/index.html">Home</a></li>
                 <li><a href="#">Serviços</a></li>
                 <li><a href="#">Carros</a></li>
                 <button class="cadastrar" id="cadastrar-veiculo" onclick="showPostFields()">Cadastrar veículo</button>
@@ -40,6 +43,15 @@
     </header>
     <main>
         <section class="carlist-section">
+            <!-- <div class="not-found">
+                <img src="static/assets/search.svg" alt="search">
+                <p class="none-title">Não existe nenhum carro na lista no momento</p>
+                <p class="none-subtitle">Você pode cadastrar um novo carro</p>
+                <div class="none-button">
+                    <button class="cadastar-two">Cadastrar veículo</button>
+                    <button class="back-home">Voltar a Home</button>
+                </div>
+            </div> -->
             <div id="pop-add">
                 <div class="container">
                     <img id="close" src="static/assets/close-icon.svg" alt="close">
@@ -50,8 +62,8 @@
                             <label for="marca">Insira a marca</label>
                             <!-- <input type="text" name="marca" id="marca" placeholder="Marca"> -->
                             <select name="marca" id="marca">
-                                <option value="peugeot">Peugeot</option>
-                                <option value="fiat">Fiat</option>
+                                <option value="Peugeot">Peugeot</option>
+                                <option value="Fiat">Fiat</option>
                             </select>
                         </p>
 
