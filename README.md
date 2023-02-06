@@ -1,4 +1,4 @@
-# <img src="https://raw.githubusercontent.com/alvessleo/PAFT-aluguel-de-carros/401891ce7bbb365767296aa1f3f167b2d0ef8b84/static/assets/white-logo.svg?token=AVUGOUKCZDI5G5Y5J7BQOGLD4B5EA">
+# <img src="https://raw.githubusercontent.com/alvessleo/PAFT-aluguel-de-carros/780ab6fb7a0adbdc6d874e78de94f3652f31c8a0/static/assets/white-logo.svg?token=AVUGOUL4LUZF55CK6KIB43DD4B6RO">
  
 ## Aluguel de carros 
 Projeto final do módulo de **Ajax + API** do curso de extensão Programa de Atração e Formação de Talentos (PAFT)
