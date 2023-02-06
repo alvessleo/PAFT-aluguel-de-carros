@@ -43,15 +43,6 @@
     </header>
     <main>
         <section class="carlist-section">
-            <!-- <div class="not-found">
-                <img src="static/assets/search.svg" alt="search">
-                <p class="none-title">Não existe nenhum carro na lista no momento</p>
-                <p class="none-subtitle">Você pode cadastrar um novo carro</p>
-                <div class="none-button">
-                    <button class="cadastar-two">Cadastrar veículo</button>
-                    <button class="back-home">Voltar a Home</button>
-                </div>
-            </div> -->
             <div id="pop-add">
                 <div class="container">
                     <img id="close" src="static/assets/close-icon.svg" alt="close">
@@ -60,7 +51,6 @@
                     <form id="formAdd">
                         <p id="p-marca">
                             <label for="marca">Insira a marca</label>
-                            <!-- <input type="text" name="marca" id="marca" placeholder="Marca"> -->
                             <select name="marca" id="marca">
                                 <option value="Peugeot">Peugeot</option>
                                 <option value="Fiat">Fiat</option>
@@ -71,15 +61,10 @@
                         <p id="p-modelo">
                             <label for="modelo">Insira o modelo</label>
                             <input type="text" name="modelo" id="modelo" placeholder="Modelo">
-                            <!-- <select name="modelo" id="modelo">
-                                <option value="208">208</option>
-                                <option value="fiat">Uno</option>
-                            </select> -->
                         </p>
                         
                         <p id="p-ano">
                             <label for="ano">Insira o ano</label>
-                            <!-- <input type="text" name="ano" id="ano" placeholder="Ano"> -->
                             <select name="ano" id="ano">
 
                             </select>
@@ -97,7 +82,6 @@
                         
                         <p id="p-status">
                             <label for="status">Insira o status</label>
-                            <!-- <input type="text" name="status" id="status" placeholder="Status"> -->
                             <select name="status" id="status">
                                 <option value="DISPONÍVEL">Disponível</option>
                                 <option value="ALUGADO">Alugado</option>
@@ -116,6 +100,9 @@
                     <h1>Lista de carros</h1>
                     <div class="container">
                         <div id="cars">
+                            <!-- AQUI É ONDE APARECE OS CARDS CRIADOS PELO JS -->
+                            <!-- ABAIXO É A ESTRUTURA UTILIZADA -->
+
                             <!-- <div class="car">
                                 <div class="diaria">
                                     <p>Valor da diária</p>

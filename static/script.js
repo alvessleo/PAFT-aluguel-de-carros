@@ -18,21 +18,7 @@ for(i = 2000;i < 2024; i++){
     selector.appendChild(options);
 }
 
-
-
-// Novas opcoes (EDITAR E REMOVER) ao hover no card
-// function showMoreOptions(id) {
-//     let options = document.getElementById('options')
-//     options.style.opacity = "1"
-// }
-
-// function hideOptions(id) {
-//     let options = document.getElementById('options')
-//     options.style.opacity = "0"
-// }
-
-
-// Função para remover o form de edição, caso ele exista, do dom.
+// Função para remover o form de edição, caso ele exista
 function removeEditFields() { 
     editMode = false // Desative o modo edição
     let popEdit = document.getElementById('popEdit')
@@ -56,6 +42,7 @@ function getCars(){
             json.cars.forEach(car => {
                 count++
 
+                // Aqui é tratado a imagem dinamica de acordo com a marca do carro escolhida
                 let image = "/static/assets/"
 
                 if(car['marca'] === "Fiat"){
@@ -66,6 +53,7 @@ function getCars(){
                     image += "Kicks-black.png"
                 }
 
+                // Criação do card do carro
                 document.getElementById('cars').innerHTML += `<div class="car" id="car-card">
                                                                 <div class="options" id="options">
                                                                     <button class="edit" id="updateCarEdit" onclick='showUpdateFields(${car['id']})'><img src="static/assets/edit.svg"></button>                        
@@ -91,6 +79,7 @@ function getCars(){
                 document.getElementById(`null-obs${count}`).style.fontWeight = "400"
                 document.getElementById(`null-obs${count}`).style.marginLeft = "5px"
 
+                // Caso o usuario deixe o campo de observação em branco
                 if(car['observacao'] === ""){
                     if(document.getElementById(`null-obs${count}`).innerText === ""){
                         console.log('entrei')
@@ -98,7 +87,7 @@ function getCars(){
                     }
                 }
 
-
+                // Dar uma cor ao status do carro dinamicamente
                 if(car['status'] === 'DISPONÍVEL'){
                     document.getElementById(`status-disp${count}`).style.backgroundColor = "#99C46B"
                 } else if(car['status'] === 'ALUGADO'){
@@ -107,8 +96,10 @@ function getCars(){
                     document.getElementById(`status-disp${count}`).style.backgroundColor = "rgb(253, 255, 125)"
                 )
             });
-
+           
         } else {
+            // Crio uma estrutura HTML caso nao exista carros na lista
+            // Um empty state personalizado
             document.getElementById('cars').innerHTML = `<div class="not-found">
                                                             <img class="search-img" src="static/assets/search.svg" alt="search">
                                                             <p class="none-title">Não existe nenhum carro na lista no momento</p>
@@ -125,7 +116,7 @@ function getCars(){
     removeEditFields()
 }
 
-// Requisição POST para adicionar um contato na lista no servidor
+// Requisição POST para adicionar um carro na lista
 function postCar(){
     const modelo = document.getElementById('modelo');
     const marca = document.getElementById('marca');
@@ -159,6 +150,7 @@ function postCar(){
 
 }
 
+// Função chamada ao clicar no botão para cadastrar um veiculo
 function showPostFields(){
     let buttonForm = document.getElementById('form-add-confirm');
     buttonForm.disabled = true;
@@ -182,24 +174,28 @@ function showPostFields(){
     }
 }
 
-// Função chamada ao clicar no botão para editar um contato, cria e exibe os campos para editar o contato.
+// Função chamada ao clicar no botão para editar um carro
 function showUpdateFields(id){
 
     if(!editMode) { // Se ele não estiver em modo de edição
         editMode = true // Ative o modo edição
 
+        // Criando a div do pop-up do form para edição
         let popEdit = document.createElement('div')
         popEdit.setAttribute('id', 'popEdit')
 
         popEdit.style.display = "flex"
 
+        // Container da div a cima
         let container = document.createElement('div')
         container.setAttribute('id', 'containerPop')
 
+        // Titulo dentro do container
         let title = document.createElement('p')
         title.setAttribute('id', 'title')
         title.innerText = "Atualize seu carro"
 
+        // Logo + close button do nosso container
         let logoClose = document.createElement('div')
         logoClose.setAttribute('id', 'logo-close')
         let logo = document.createElement('img')
@@ -210,16 +206,19 @@ function showUpdateFields(id){
         close.setAttribute('src', 'static/assets/close-icon.svg')
         logoClose.append(logo, close)
 
+        // Fechar o form ao clicar no close
         close.onclick = () => {
             popEdit.style.display = "none"
         }
 
+        // Criacao do input para inserir o modelo
         let inputModelo = document.createElement('input')
         inputModelo.type = "text";
         inputModelo.setAttribute('name', 'updateModelo')
         inputModelo.setAttribute('id', 'updateModelo')
         inputModelo.setAttribute('placeholder', 'Insira o novo modelo')
         
+        // Criacao do select para selecionar a marca + 3 opçoes do select
         let selectMarca = document.createElement('select')
         selectMarca.setAttribute('name', 'updateMarca')
         selectMarca.setAttribute('id', 'updateMarca')
@@ -234,10 +233,12 @@ function showUpdateFields(id){
         optMarca3.innerText = "Nissan"
         selectMarca.append(optMarca, optMarca2, optMarca3)
 
+        // Criacao do select para selecionar o ano
         let selectAno = document.createElement('select')
         selectAno.setAttribute('name', 'updateAno')
         selectAno.setAttribute('id', 'updateAno')
 
+        // For para criar as opcoes de 2000 - 2023
         for(i = 2000;i < 2024; i++){
             let options = document.createElement('option');
             options.innerText = i;
@@ -245,24 +246,21 @@ function showUpdateFields(id){
             selectAno.appendChild(options);
         }
         
+        // Criação do input para inserir a observacao
         let inputObservacao = document.createElement('input')
         inputObservacao.type = "text";
         inputObservacao.setAttribute('name', 'updateObservacao')
         inputObservacao.setAttribute('id', 'updateObservacao')
         inputObservacao.setAttribute('placeholder', 'Insira a nova observacao')
         
+        // Criação do input do valor
         let inputValor = document.createElement('input')
         inputValor.type = "number";
         inputValor.setAttribute('name', 'updateValor')
         inputValor.setAttribute('id', 'updateValor')
         inputValor.setAttribute('placeholder', 'Insira o novo valor')
-        
-        let inputStatus = document.createElement('input')
-        inputStatus.type = "text";
-        inputStatus.setAttribute('name', 'updateStatus')
-        inputStatus.setAttribute('id', 'updateStatus')
-        inputStatus.setAttribute('placeholder', 'Insira o novo status')
-        
+      
+        // Criação do select do status + 3 opções
         let selectStatus = document.createElement('select') 
         selectStatus.setAttribute('name', 'updateStatus')
         selectStatus.setAttribute('id', 'updateStatus')
@@ -277,10 +275,17 @@ function showUpdateFields(id){
         status3.innerText = "Em manutenção"
         selectStatus.append(status1, status2, status3)
 
+        // let inputStatus = document.createElement('input')
+        // inputStatus.type = "text";
+        // inputStatus.setAttribute('name', 'updateStatus')
+        // inputStatus.setAttribute('id', 'updateStatus')
+        // inputStatus.setAttribute('placeholder', 'Insira o novo status')
+
         let confirmEditButton = document.createElement("button") 
         confirmEditButton.setAttribute("id", "confirmEditButton")
         confirmEditButton.innerText = "Confirmar"
 
+        // Criação do form + adicao de todos os elementos necessários
         let formEdit = document.createElement('form')
         formEdit.setAttribute('id', 'formEdit')
         formEdit.append(logoClose ,title, inputModelo, selectMarca, selectAno, inputObservacao, inputValor, selectStatus, confirmEditButton)
@@ -297,6 +302,7 @@ function showUpdateFields(id){
         let updateButtonForm = document.getElementById('confirmEditButton');
         updateButtonForm.disabled = true; 
 
+        // Validação basica no form
         console.log('formEdit',formEdit)
         formEdit.addEventListener('input', () => {
             validateFormEdit()
@@ -309,8 +315,7 @@ function showUpdateFields(id){
     }
 }
 
-// Função chamada após clicar no botão "Confirmar" ao editar um contato.
-// Requisição PUT para atualizar o contato em questão (que está salvo na lista no servidor) com os campos alterados pelo usuário
+// Requisição PUT para atualizar o carro
 function updateCar(id, modelo, marca, ano, observacao, valor, status) {
     let urlUpdate = url + `/${parseInt(id)}`
     const data = {"modelo":modelo,"marca":marca,"ano":ano,"observacao":observacao,"valor":valor,"status":status}
@@ -329,7 +334,7 @@ function updateCar(id, modelo, marca, ano, observacao, valor, status) {
     .catch(error => console.error(error));
 }
 
-// Requisição DELETE para remover o contato da lista de contatos presente no servidor.
+// Requisição DELETE para remover o carro da lista de carros
 function deleteCar(id){
     let urlDelete = url + `/${parseInt(id)}`
     fetch(urlDelete, {
@@ -352,7 +357,7 @@ let observacao = document.getElementById('observacao');
 let valor = document.getElementById('valor');
 let buttonForm = document.getElementById('form-add-confirm');
 
-
+// Funcao que ira validar o form de adicionar veiculo
 function validateForm(){
     let marca = document.getElementById('marca');
     let modelo = document.getElementById('modelo');
@@ -372,10 +377,12 @@ function validateForm(){
 
 }
 
+// Chama a validação
 formAdd.addEventListener('input', () => {
     validateForm()
 })
 
+// Funcao que ira validar o form de editar o card do carro
 function validateFormEdit(){
     let updateMarca = document.getElementById('updateMarca');
     let updateModelo = document.getElementById('updateModelo');
