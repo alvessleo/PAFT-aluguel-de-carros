@@ -327,11 +327,16 @@ footer{
     background-color: $color-primary;
     padding: 4em 0 3em 2em;
     z-index: 100;
+
     .useful-links{
         display: flex;
         margin-bottom: 2em;
+        justify-content: space-around;
+        flex-wrap: wrap;
         .list{
             margin-right: 3em;
+            width: 210px;
+            margin-bottom: 2em;
 
             .header{
                 font-weight: 600;
@@ -345,12 +350,17 @@ footer{
                         margin-left: .5em;
                         color: #34590d;
                     }
+
+                    img {
+                        width: 130px;
+                    }
                 }
             }
         }
     }
     .direitos{
         margin-top: 1em;
+        text-align: center;
     }
 }
 

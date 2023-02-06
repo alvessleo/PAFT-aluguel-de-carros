@@ -263,9 +263,13 @@ footer {
 footer .useful-links {
   display: flex;
   margin-bottom: 2em;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 footer .useful-links .list {
   margin-right: 3em;
+  width: 210px;
+  margin-bottom: 2em;
 }
 footer .useful-links .list .header {
   font-weight: 600;
@@ -278,8 +282,12 @@ footer .useful-links .list p a:hover {
   margin-left: 0.5em;
   color: #34590d;
 }
+footer .useful-links .list p a img {
+  width: 130px;
+}
 footer .direitos {
   margin-top: 1em;
+  text-align: center;
 }
 
 @media only screen and (min-width: 768px) {
