@@ -59,12 +59,13 @@ function getCars(){
                 let image = "/static/assets/"
 
                 if(car['marca'] === "Fiat"){
-                    image += "peugeot-azul.png"
+                    image += "Fiat-pulse.png"
                 } else if(car['marca'] === "Peugeot"){
                     image += "Peugeot-amarelo.png"
+                } else{
+                    image += "Kicks-black.png"
                 }
-                let peugeot = "/static/assets/Peugeot-amarelo.png"
-                let uno = "/static/assets/peugeot-azul.png"
+
                 document.getElementById('cars').innerHTML += `<div class="car" id="car-card">
                                                                 <div class="options" id="options">
                                                                     <button class="edit" id="updateCarEdit" onclick='showUpdateFields(${car['id']})'><img src="static/assets/edit.svg"></button>                        
@@ -229,8 +230,8 @@ function showUpdateFields(id){
         optMarca2.setAttribute('value', 'Fiat')
         optMarca2.innerText = "Fiat"
         let optMarca3 = document.createElement('option')
-        optMarca3.setAttribute('value', 'Volkswagen')
-        optMarca3.innerText = "Volkswagen"
+        optMarca3.setAttribute('value', 'Nissan')
+        optMarca3.innerText = "Nissan"
         selectMarca.append(optMarca, optMarca2, optMarca3)
 
         let selectAno = document.createElement('select')
