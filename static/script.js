@@ -174,9 +174,10 @@ function showPostFields(){
     }
 }
 
+
+
 // Função chamada ao clicar no botão para editar um carro
 function showUpdateFields(id){
-
     if(!editMode) { // Se ele não estiver em modo de edição
         editMode = true // Ative o modo edição
 
@@ -209,6 +210,7 @@ function showUpdateFields(id){
         // Fechar o form ao clicar no close
         close.onclick = () => {
             popEdit.style.display = "none"
+            editMode = false
         }
 
         // Criacao do input para inserir o modelo
